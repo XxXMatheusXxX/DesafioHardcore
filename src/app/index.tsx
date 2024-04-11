@@ -1,18 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import {  Text, View,Image } from 'react-native';
+import {  View } from 'react-native';
 import { styles } from '../css/index.style';
-import {Link} from 'expo-router';
+import { router} from 'expo-router';
+import LottieView from 'lottie-react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Início</Text><Image style={styles.imagens}
-
-source={require('../../assets/yas.jpg')}
-/>
-      <Link style={styles.btn} href={"/sobre"}>Sobre</Link>
-      <Link style={styles.btn1} href={"/contatos"}>Contato</Link>
-      
+       <LottieView
+          source={require("../../assets/nave.json")}
+          style={{width:"100%", height:"100%"}}
+          autoPlay
+          loop={false}
+          autoSize
+          onAnimationFinish={()=>router.navigate('login')}
+      />
       <StatusBar style="auto" />
     </View>
   );
